@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://cqxw32mi70v4m"]
+
+[ext_resource type="Script" path="res://node_3d.cs" id="1_dfe2s"]
+[ext_resource type="PackedScene" uid="uid://dgxwvehspcn4u" path="res://Models381/SpringModel.tscn" id="2_8lq7n"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_lkf5w"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_voumx"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xuuhr"]
+
+[node name="SimBeginScene" type="Node3D"]
+script = ExtResource("1_dfe2s")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0239289, 1.43731, 4.37977)
+
+[node name="SpringModel" parent="." instance=ExtResource("2_8lq7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.137657, 0, -0.588475)
+
+[node name="Anchor" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.499999, -0.000855211, 0, 0.000855211, 0.499999, 0, 0, 0, 0.5, 0, 2.9023, 0)
+mesh = SubResource("BoxMesh_lkf5w")
+skeleton = NodePath("../Ball")
+
+[node name="Ball" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("SphereMesh_voumx")
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0.231219, 0.739993, 0.058444)
+mesh = SubResource("PlaneMesh_xuuhr")
+skeleton = NodePath("")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.933223, 0.359297, 0, -0.359297, 0.933223, 0.231219, 1.72886, 6.66404)
+light_energy = 2.6
+
+[node name="LabelKE" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.69008, 2.576, 0)
+font_size = 64
+
+[node name="LabelPE" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.61574, 4.12121, -0.853192)
+font_size = 64
+
+[node name="LabelTotEng" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49423, 0)
+font_size = 64
+
+[node name="LabelPEmgh" type="Label3D" parent="."]
+
+[node name="LabelY" type="Label3D" parent="."]
+
+[node name="LabelPESpring" type="Label3D" parent="."]
+
+[node name="LabelSpringDeltaL" type="Label3D" parent="."]
